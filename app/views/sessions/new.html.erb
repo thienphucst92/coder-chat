@@ -1,0 +1,12 @@
+<h1>Sign in</h1>
+
+<% if params[:show_hint] %>
+  <%= link_to "Create New Account", new_user_path %>
+<% end %>
+
+<%= form_tag sessions_path do %>
+  <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: "Enter email" %>
+  <%= password_field_tag :password, nil, class: 'form-control', placeholder: "Enter password" %>
+
+  <%= submit_tag "Sign in", class: 'btn btn-primary' %>
+<% end %>

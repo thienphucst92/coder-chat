@@ -1,0 +1,10 @@
+<h1>Add Friend</h1>
+
+<% @users.each do |user| %>
+  <div class="card">
+    <div class="carb-block">
+      <%= user.name %>
+      <%= link_to "Add friend", "#", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
