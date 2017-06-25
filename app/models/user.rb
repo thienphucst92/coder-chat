@@ -27,4 +27,15 @@ class User < ApplicationRecord
     end
   end
 
+  def friend_request
+    friend_request = []
+    inverse_relationships.each do |relation|
+      if relation.status == 'pending'
+        friend_request << User.find_by(id: relation.user_id)
+      end
+    end
+
+    friend_request
+  end
+
 end

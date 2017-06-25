@@ -1,9 +1,7 @@
 <h2>Friend request</h2>
 <ul>
-  <% for inverse_relationship in @user.inverse_relationships %>
-    <% if inverse_relationship.status == 'pending' %>
-      <%= inverse_relationship.inverse_friend.name %>
-      <%= link_to 'Accept', accept_path(friend_id: inverse_relationship.inverse_friend.id), method: 'post', class: "btn btn-primary" %>
-    <% end %>
+  <% @user.friend_request.each do |friend| %>
+    <%= friend.name %>
+    <%= link_to 'Accept', accept_path(friend_id: friend.id), method: 'post', class: "btn btn-primary" %>
   <% end %>
 </ul>

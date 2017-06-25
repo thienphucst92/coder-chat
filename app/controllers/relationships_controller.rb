@@ -20,7 +20,7 @@ class RelationshipsController < ApplicationController
     @friendship = current_user.relationships.build(friend_id: params[:friend_id].to_i, status: 'friend')
     @friendship.save
 
-    redirect_to user_path(current_user.id)
+    redirect_to users_path
   end
 
 end
