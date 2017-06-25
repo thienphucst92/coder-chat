@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login
 
   def new
     @user = User.new
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  end
+
+  def friend_request
+    @user = current_user
   end
 
   private

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href=<%= root_path %>>FastText</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <% if current_user.present? %>
+        <li class="nav-item active">
+          <%= link_to "Add Friends", users_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "New message", new_message_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sent Messages", messages_path(sent: true), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Received Messages", messages_path(unread: true), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Friend request", friend_request_users_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Out", logout_path, method: 'delete', class: "nav-link" %>
+        </li>
+      <% else %>
+        <% link_to "Sign Up", new_user_path, class: "nav-link" %>
+        <% link_to "Sign In", new_session_path, class: "nav-link" %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

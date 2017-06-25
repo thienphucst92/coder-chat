@@ -1,5 +1,6 @@
 <h1> Inbox </h1>
-<%= link_to "Received Messages", messages_path, class: "btn btn primary" %>
-<%= link_to "Sent Messages", "#", class: "btn btn primary" %>
-<%= link_to "Add Friends", users_path, class: "btn btn primary" %>
-<%= link_to "New message", "#", class: "btn btn primary" %>
+<%= link_to "Received Messages", messages_path(unread: true), class: "btn btn-primary" %>
+<%= link_to "Sent Messages", messages_path(sent: true), class: "btn btn-primary" %>
+<%= link_to "Add Friends", users_path, class: "btn btn-primary" %>
+<%= link_to "New message", new_message_path, class: "btn btn-primary" %>
+<%= link_to "Friend request", friend_request_users_path, class: "btn btn-primary" %>

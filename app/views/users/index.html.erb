@@ -1,10 +1,16 @@
 <h1>Add Friend</h1>
 
 <% @users.each do |user| %>
-  <div class="card">
+  <div class="col-x2-12 col-md-4">
     <div class="carb-block">
-      <%= user.name %>
-      <%= link_to "Add friend", "#", class: "btn btn-primary" %>
+      <h4 class="card-title"><%= user.name %></h4>
+      <% if current_user.get_relationship(user) == "friend" %>
+        <%= link_to "Unfriend", "#", class: "btn btn-primary" %>
+      <% elsif current_user.get_relationship(user) == "pending" %>
+        <%= link_to "Friend Request Sent", class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Add friend", relationships_path(friend_id: user.id), method: 'post', class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 <% end %>

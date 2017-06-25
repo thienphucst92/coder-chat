@@ -1,19 +1,35 @@
-<h1>Inbox</h1>
+<% if @unread %>
+  <h1>Inbox</h1>
+<% elsif @sent %>
+  <h1>Sent</h1>
+<% end %>
 
 <table class="table table-striped">
   <thead class="thead thead-default">
+    <% if @unread %>
     <tr>
       <th>Sender</th>
       <th>Subject</th>
     </tr>
+    <% else %>
+      <th>Subject</th>
+      <th>Time</th>
+    <% end %>
   </thead>
 
   <tbody>
     <% @messages.each do |msg| %>
-      <tr>
-        <td><strong><%= msg.sender.name %></strong></td>
-        <td><strong><%= link_to msg.subject, message_path(msg.id) %></strong></td>
-      </tr>
+      <% if @unread %>
+        <tr>
+          <td><strong><%= msg.sender.name %></strong></td>
+          <td><strong><%= link_to msg.subject, message_path(msg.id) %></strong></td>
+        </tr>
+      <% elsif @sent %>
+        <tr>
+          <td><%= msg.subject %></td>
+          <td>Read <%= time_ago_in_words(msg.read_at) %> ago by <%= msg.recipient.name %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
