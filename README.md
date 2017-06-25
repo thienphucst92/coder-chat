@@ -4,9 +4,9 @@
 
 Submitted by: **Phuc Tran**
 
-Time spent: **X** hours
+Time spent: **17** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://floating-gorge-28954.herokuapp.com/**
 
 ## User Stories
 
