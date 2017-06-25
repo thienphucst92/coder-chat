@@ -4,7 +4,7 @@
     <% if inverse_relationship.status == 'pending' %>
       <% debugger %>
       <%= inverse_relationship.inverse_friend.name %>
-      <%= link_to 'Accept', accept_path(friend_id: inverse_relationship.inverse_friend.id), method: 'post', class: "btn btn-secondary" %>
+      <%= link_to 'Accept', accept_path(friend_id: inverse_relationship.inverse_friend.id), method: 'post', class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </ul>
